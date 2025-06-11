@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:inovola_techincal_task/data/services/currency_service.dart';
 
 // Simple validation function for amount (as in AddExpenseScreen)
 String? validateAmount(String? value) {

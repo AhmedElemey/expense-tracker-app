@@ -3,10 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/theme.dart';
 import '../providers/expense_provider.dart';
 import '../../data/models/expense_model.dart';
-import 'add_expense_screen.dart' show CategoryData;
 import 'dashboard_screen.dart' show dashboardCategories;
 import 'package:intl/intl.dart';
-import '../../data/repositories/expense_repository.dart';
 
 class PaginatedExpensesScreen extends ConsumerStatefulWidget {
   const PaginatedExpensesScreen({super.key});

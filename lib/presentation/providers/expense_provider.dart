@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hive/hive.dart';
 import '../../data/models/expense_model.dart';
 import '../../data/repositories/expense_repository.dart';
 

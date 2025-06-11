@@ -4,7 +4,7 @@ import '../providers/expense_provider.dart';
 import '../../data/models/expense_model.dart';
 import 'package:intl/intl.dart';
 import 'add_expense_screen.dart' show CategoryData;
-import 'paginated_expenses_screen.dart';
+
 
 final List<CategoryData> dashboardCategories = [
   CategoryData('Groceries', Icons.shopping_cart, Color(0xFFE8ECFB)),
@@ -26,7 +26,7 @@ class DashboardScreen extends ConsumerStatefulWidget {
 class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   final _scrollController = ScrollController();
   int _selectedIndex = 0;
-  String _selectedFilter = 'All';
+  final String _selectedFilter = 'All';
   String _selectedDate = 'This month';
   final List<String> _dateFilters = [
     'Today',
@@ -294,7 +294,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
             ),
             IconButton(
               icon: Icon(Icons.person_outline, color: _selectedIndex == 4 ? Color(0xFF3B5AFB) : Color(0xFF8F9BB3)),
-              onPressed: () => setState(() => _selectedIndex = 4),
+              onPressed: () async {
+                await Navigator.pushNamed(context, '/profile');
+                setState(() => _selectedIndex = 0);
+              },
             ),
           ],
         ),

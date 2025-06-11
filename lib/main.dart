@@ -8,14 +8,12 @@ import 'presentation/screens/login_screen.dart';
 import 'presentation/screens/dashboard_screen.dart';
 import 'presentation/screens/add_expense_screen.dart';
 import 'presentation/screens/all_expenses_screen.dart';
+import 'presentation/screens/profile_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Initialize Hive
   await Hive.initFlutter();
-  // Clear all expenses on every app start (debug and release)
-  await clearAllExpenses();
-  
   
   // Register adapters
   Hive.registerAdapter(ExpenseModelAdapter());
@@ -41,11 +39,8 @@ class MyApp extends StatelessWidget {
         '/dashboard': (context) => const DashboardScreen(),
         '/add-expense': (context) => const AddExpenseScreen(),
         '/all-expenses': (context) => const AllExpensesScreen(),
+        '/profile': (context) => const ProfileScreen(),
       },
     );
   }
-}
-
-Future<void> clearAllExpenses() async {
-  await Hive.deleteBoxFromDisk('expenses');
 }
